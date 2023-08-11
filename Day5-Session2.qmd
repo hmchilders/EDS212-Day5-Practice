@@ -5,23 +5,71 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+library(tidyverse)
 ```
 
-You can add options to executable code like this
+# Logical Operators
+
+-   == (does this match?)
+
+-   = (defines variable)
+
+-   != (do these not match?)
+
+-   \>, \<, \>=, \<= (greater than, less than, greater than or equal to, less than or equal to)
+
+-   &, \| (AND, OR) logic val.
 
 ```{r}
-#| echo: false
-2 * 2
+#Does this match?
+4 == 5
+
+4 == 4
+
+
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```{r}
+#Does this not match?
+4 != 5
+
+4 != 4
+
+
+```
+
+```{r}
+#Does 4 match "4"
+
+4 == "4"
+
+
+```
+
+```{r}
+#Can assigned variables match?
+cat <- 4
+dog <- 6
+
+cat == dog
+cat >= dog
+
+#Is dog greater than cat or less than 20?
+dog >cat | cat<20
+```
+
+```{r}
+#Is dog less than cat and cat ==10
+dog<cat & cat == 10
+
+dog < cat & cat > 2 & 4 >= dog
+```
+
+```{r}
+ggplot(data = mtcars, aes(x= wt, y=mpg))+
+  geom_point(color = "magenta", 
+             aes (size = hp))+
+  labs(title = "Cars Data", x = "Car weight (thousands of pounds)", y = "Miles/gallon")
+```
